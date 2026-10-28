@@ -1,0 +1,33 @@
+name: opencode-multi-llm
+repo: https://github.com/beastlabai/multi-llm-plugin
+tagline: Parallel multi-LLM plan, code, and commit reviews across 19 coding CLIs
+description: >-
+  Run independent plan, code, and commit reviews across 19 supported coding CLIs
+  from OpenCode, then validate and consolidate the findings. Also supports task
+  generation, implementation, automated revision, resumable runs, and live progress.
+  Provides a /multi-llm command and a multi_llm tool through the published
+  opencode-multi-llm npm package. Requires uv and authenticated provider CLIs;
+  the npm route is verified on Linux.
+scope:
+  - global
+  - project
+tags:
+  - code-review
+  - multi-llm
+  - orchestration
+  - planning
+min_version: 1.19.4
+homepage: https://github.com/beastlabai/multi-llm-plugin/blob/master/docs/hosts.md
+installation: |
+  Add the package to the plugin array in opencode.json and restart OpenCode:
+
+  ```json
+  { "plugin": ["opencode-multi-llm@0.1.1"] }
+  ```
+
+  Requires OpenCode >= 1.19.4, uv, and installed/authenticated provider CLIs.
+  Linux is verified; macOS and Windows are untested on this route.
+  Run `/multi-llm --init` once per repository, then use
+  `/multi-llm --review-plan plans/feature.md --quick` or
+  `/multi-llm --review-commits last 3 commits --quick`.
+  Upgrade by changing the pinned package version and restarting.
